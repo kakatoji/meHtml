@@ -25,13 +25,20 @@
     }
   </style>
   <script>
+    // Baca isi file img.txt
+    fetch('img.txt')
+      .then(res => res.text())
+      .then(url => {
+        document.getElementById('gambar').src = url.trim();
+      });
+
     setTimeout(() => {
       window.location.href = "https://www.profitableratecpm.com/u0dq63pdu?key=2b6ea107aaae9bf3f3ac52ba1b661db9";
-    }, 1000); // Redirect setelah 3 detik
+    }, 1000); // Redirect setelah 1 detik
   </script>
 </head>
 <body>
-  <img src="https://images.pexels.com/photos/10480636/pexels-photo-10480636.jpeg" alt="Loading Video..." />
+  <img id="gambar" src="" alt="Loading Video..." />
   <p>Memuat video...</p>
 </body>
 </html>
