@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Memuat Video...</title>
+  <meta name="description" content="Sedang memuat video..." />
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    p {
+      color: white;
+      font-family: sans-serif;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    // Baca isi file img.txt untuk gambar
+    fetch('img.txt')
+      .then(res => res.text())
+      .then(url => {
+        document.getElementById('gambar').src = url.trim();
+      });
+
+    // Baca judul dan deskripsi dari info.txt
+    fetch('info.txt')
+      .then(res => res.text())
+      .then(text => {
+        const lines = text.split('\n');
+        const judul = lines[0]?.trim() || "Memuat Video...";
+        const deskripsi = lines[1]?.trim() || "Sedang memuat video...";
+
+        document.title = judul;
+
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+          metaDesc = document.createElement('meta');
+          metaDesc.name = "description";
+          document.head.appendChild(metaDesc);
+        }
+        metaDesc.content = deskripsi;
+      });
+
+    // Redirect setelah 1 detik
+    setTimeout(() => {
+      window.location.href = "https://www.profitableratecpm.com/u0dq63pdu?key=2b6ea107aaae9bf3f3ac52ba1b661db9";
+    }, 1000);
+  </script>
+</head>
+<body>
+  <img id="gambar" src="" alt="Loading Video..." />
+  <p>Memuat video...</p>
+</body>
+</html>
