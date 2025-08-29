@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promo Spesial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    .header {
+      background: #4caf50;
+      padding: 20px;
+      text-align: center;
+    }
+    .header img {
+      width: 100px;
+    }
+    .title {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    .desc {
+      font-size: 14px;
+      margin: 15px;
+      text-align: center;
+    }
+    .btn {
+      background: #ff9800;
+      padding: 15px 25px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      display: block;
+      margin: 20px auto;
+      width: 200px;
+      text-align: center;
+    }
+    .progress {
+      text-align: center;
+      font-size: 22px;
+      display: none;
+      margin: 20px;
+    }
+    .input-box {
+      text-align: center;
+      margin: 20px;
+      display: none;
+    }
+    .input-box input {
+      padding: 10px;
+      font-size: 16px;
+      width: 60%;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    .input-box button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #4caf50;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      margin-left: 10px;
+    }
+
+    /* Like, Comment, Share count */
+    .fb-stats {
+      font-size: 13px;
+      color: #aaa;
+      padding: 10px 20px;
+      border-bottom: 1px solid #333;
+    }
+    .fb-stats span {
+      margin-right: 15px;
+    }
+
+    /* Komentar Facebook Palsu */
+    .fb-comments {
+      background: #111;
+      padding: 15px;
+      margin: 20px;
+      border-radius: 5px;
+    }
+    .fb-comment {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .fb-comment img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+    .fb-comment-content {
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 80%;
+    }
+    .fb-name {
+      font-weight: bold;
+      color: #4caf50;
+      font-size: 14px;
+    }
+    .fb-text {
+      font-size: 13px;
+      margin-top: 2px;
+    }
+    .fb-meta {
+      font-size: 11px;
+      color: #888;
+      margin-top: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="https://i.imgur.com/6RLvxRJ.png" alt="Logo">
+    <div class="title">🎉 Promo Spesial 50GB 🎉</div>
+  </div>
+
+  <div class="desc">
+    Dapatkan hadiah kuota 50GB untuk semua operator.<br>
+    Klik tombol di bawah untuk cek nomor Anda.
+  </div>
+
+  <a href="#" id="cekBtn" class="btn">CEK NOMOR</a>
+
+  <div class="progress" id="progress">
+    Sedang memeriksa... <br>
+    <span id="percent">0%</span>
+  </div>
+
+  <div class="input-box" id="inputBox">
+    <p>Masukkan nomor Anda untuk aktivasi hadiah:</p>
+    <input type="text" placeholder="08xxxxxxxxxx" id="nomor">
+    <button onclick="lanjut()">Cek Nomor</button>
+  </div>
+
+  <!-- Jumlah Like, Komentar, Share -->
+  <div class="fb-stats">
+    <span>👍 2,3 rb suka</span>
+    <span>💬 528 komentar</span>
+    <span>↗ 320 dibagikan</span>
+  </div>
+
+  <!-- Komentar Facebook Palsu -->
+  <div class="fb-comments">
+    <div class="fb-comment">
+      <img src="https://i.pravatar.cc/40?img=1" alt="pp">
+      <div>
+        <div class="fb-comment-content">
+          <div class="fb-name">Rizky S</div>
+          <div class="fb-text">Terima kasih! sangat berguna untuk belajar</div>
+        </div>
+        <div class="fb-meta">1 menit yang lalu · Suka · Balas</div>
+      </div>
+    </div>
+    <div class="fb-comment">
+      <img src="https://i.pravatar.cc/40?img=5" alt="pp">
+      <div>
+        <div class="fb-comment-content">
+          <div class="fb-name">Sinta</div>
+          <div class="fb-text">Ikuti saja petunjuknya, saya dapat 20GB. Terima kasih atas hadiahnya.</div>
+        </div>
+        <div class="fb-meta">2 menit yang lalu · Suka · Balas</div>
+      </div>
+    </div>
+    <div class="fb-comment">
+      <img src="https://i.pravatar.cc/40?img=10" alt="pp">
+      <div>
+        <div class="fb-comment-content">
+          <div class="fb-name">Mita</div>
+          <div class="fb-text">Awalnya saya pikir bohong, ternyata berhasil. Makasih!</div>
+        </div>
+        <div class="fb-meta">5 menit yang lalu · Suka · Balas</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cekBtn = document.getElementById('cekBtn');
+    const progress = document.getElementById('progress');
+    const percent = document.getElementById('percent');
+    const inputBox = document.getElementById('inputBox');
+
+    cekBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      cekBtn.style.display = 'none';
+      progress.style.display = 'block';
+
+      let p = 0;
+      let interval = setInterval(()=>{
+        p++;
+        percent.textContent = p + "%";
+        if(p >= 100){
+          clearInterval(interval);
+          progress.style.display = 'none';
+          inputBox.style.display = 'block';
+        }
+      }, 50);
+    });
+
+    function lanjut(){
+      const nomor = document.getElementById('nomor').value;
+      if(nomor.length < 9){
+        alert("Nomor tidak valid!");
+        return;
+      }
+      // redirect ke link iklan / sponsor
+      window.location.href = "https://www.contoh-iklan.com";
+    }
+  </script>
+</body>
+</html>
