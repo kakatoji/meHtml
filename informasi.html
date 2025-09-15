@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Berita - Contoh</title>
+  <style>
+    :root{
+      --bg: #1e1a18;
+      --card: #2a2624;
+      --muted: #bfb7b2;
+      --accent: #ffffff;
+      --radius: 14px;
+      --gap: 16px;
+      font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--accent);
+    }
+    .container{
+      max-width:760px;
+      margin:20px auto;
+      padding:12px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+    .card .thumb{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+      display:block;
+    }
+    .card-body{ padding:14px; }
+    .meta{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .title{
+      font-size:20px;
+      margin:0 0 10px 0;
+      cursor:pointer;
+      color:var(--accent);
+      text-decoration:none;
+      display:block;
+    }
+    .title:hover{ text-decoration:underline; }
+    .card-footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:var(--muted);
+      font-size:13px;
+      padding:0 14px 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+
+  <script>
+  async function loadData() {
+    try {
+      // ambil data dari server
+      const [imgRes, titleRes] = await Promise.all([
+        fetch("img.txt"),
+        fetch("decript.txt")
+      ]);
+
+      const imgList = (await imgRes.text()).trim().split("\n");
+      const titleList = (await titleRes.text()).trim().split("\n");
+
+      const container = document.querySelector(".container");
+
+      imgList.forEach((img, idx) => {
+        const title = titleList[idx] || "Tanpa Judul";
+
+        const card = document.createElement("article");
+        card.className = "card";
+
+        card.innerHTML = `
+          <img class="thumb" src="${img.trim()}" alt="thumb ${idx+1}">
+          <div class="card-body">
+            <div class="meta">LOCAL · ${idx+1} hr</div>
+            <a class="title" href="https://www.revenuecpmgate.com/k44tx0pkr7?key=f4c5add68b1b014b0917c4f17169b7bc" target="_blank" rel="noopener noreferrer">
+              ${title.trim()}
+            </a>
+          </div>
+          <div class="card-footer"><div></div><div>⋮</div></div>
+        `;
+
+        container.appendChild(card);
+      });
+    } catch (e) {
+      console.error("Gagal load data:", e);
+    }
+  }
+
+  loadData();
+  </script>
+</body>
+</html>
