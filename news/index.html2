@@ -4,37 +4,190 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- =========================
-META MANUAL UNTUK FB / WA / TELEGRAM
-WAJIB DIISI LANGSUNG
-========================= -->
+<title id="metaTitle">Loading...</title>
 
-<title>BERITA VIRAL</title>
+<meta name="description" content="" id="metaDesc">
 
-<meta name="description"
-content="Berita viral terbaru hari ini yang sedang ramai dibahas netizen.">
-
+<!-- Open Graph Facebook WhatsApp Telegram -->
 <meta property="og:type" content="website">
+<meta property="og:title" content="" id="ogTitle">
+<meta property="og:description" content="" id="ogDesc">
+<meta property="og:image" content="" id="ogImage">
 
-<meta property="og:title"
-content="BERITA VIRAL">
-
-<meta property="og:description"
-content="Berita viral terbaru hari ini yang sedang ramai dibahas netizen.">
-
-<meta property="og:image"
-content="https://mmc.tirto.id/image/otf/398x0/2026/05/12/indri-wahyuni-_ratio-16x9.jpg">
-
-<meta property="og:url"
-content="https://kabarbaru.netlify.app/news/">
-
-<meta name="twitter:card"
-content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 
 <style>
 
 *{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#1b1313;
+    font-family:Arial,sans-serif;
+    color:white;
+}
+
+.container{
+    width:100%;
+    max-width:520px;
+    margin:auto;
+    padding:15px;
+}
+
+.card{
+    background:#2b1d1d;
+    border-radius:22px;
+    overflow:hidden;
+    margin-bottom:20px;
+    box-shadow:0 0 15px rgba(0,0,0,.5);
+}
+
+.thumb{
+    width:100%;
+    display:block;
+}
+
+.content{
+    padding:20px;
+}
+
+.title{
+    font-size:30px;
+    line-height:1.4;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.desc{
+    color:#d3d3d3;
+    line-height:1.7;
+    margin-bottom:20px;
+    font-size:16px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ff3d00;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.btn:hover{
+    opacity:.9;
+    transform:scale(1.03);
+}
+
+.loading{
+    padding:50px;
+    text-align:center;
+    color:#aaa;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <img id="gambar" class="thumb" src="">
+
+        <div class="content">
+
+            <div id="judul" class="title">
+                Loading...
+            </div>
+
+            <div id="deskripsi" class="desc">
+                Mohon tunggu...
+            </div>
+
+            <a id="btnLink" class="btn" href="#">
+                Baca Selengkapnya
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ADSTERRA -->
+<script async="async" data-cfasync="false"
+src="https://pl27402467.profitablecpmratenetwork.com/49cd455e9be276ebbef8ef450f73c289/invoke.js"></script>
+
+<script>
+
+async function ambil(file){
+    return fetch(file)
+    .then(res => res.text())
+    .then(text => text.trim());
+}
+
+async function loadBerita(){
+
+    try{
+
+        // ambil data txt
+        const judul = await ambil("judul.txt");
+        const deskripsi = await ambil("deskripsi.txt");
+        const gambar = await ambil("img.txt");
+        const link = await ambil("link.txt");
+
+        // tampilkan ke halaman
+        document.getElementById("judul").innerText = judul;
+
+        document.getElementById("deskripsi").innerText = deskripsi;
+
+        document.getElementById("gambar").src = gambar;
+
+        document.getElementById("btnLink").href = link;
+
+        // ubah meta
+        document.title = judul;
+
+        document
+        .querySelector('meta[name="description"]')
+        .setAttribute("content", deskripsi);
+
+        document
+        .querySelector('meta[property="og:title"]')
+        .setAttribute("content", judul);
+
+        document
+        .querySelector('meta[property="og:description"]')
+        .setAttribute("content", deskripsi);
+
+        document
+        .querySelector('meta[property="og:image"]')
+        .setAttribute("content", gambar);
+
+    }catch(e){
+
+        document.getElementById("judul").innerText =
+        "Gagal memuat berita";
+
+        document.getElementById("deskripsi").innerText =
+        e;
+
+    }
+
+}
+
+loadBerita();
+
+</script>
+
+</body>
+</html>    margin:0;
     padding:0;
     box-sizing:border-box;
 }
