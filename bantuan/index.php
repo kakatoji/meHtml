@@ -7,7 +7,7 @@
 $redirect = "https://www.profitablecpmratenetwork.com/k44tx0pkr7?key=f4c5add68b1b014b0917c4f17169b7bc";
 
 // thumbnail
-$thumb = "thumb.jpg";
+$thumb = "bantuan.jpeg";
 
 // title
 $title = "Bantuan cair bulan MEI 2026";
