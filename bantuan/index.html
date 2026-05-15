@@ -1,25 +1,3 @@
-<?php
-// =======================
-// CONFIG
-// =======================
-
-// tujuan redirect
-$redirect = "https://www.profitablecpmratenetwork.com/k44tx0pkr7?key=f4c5add68b1b014b0917c4f17169b7bc";
-
-// thumbnail
-$thumb = "bantuan.jpeg";
-
-// title
-$title = "Bantuan cair bulan MEI 2026";
-
-// deskripsi
-$desc = "Klik lanjut kan untuk melihat pencairan sekarang";
-
-// domain otomatis
-$domain = (isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-$image = $domain . '/' . $thumb;
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -27,24 +5,23 @@ $image = $domain . '/' . $thumb;
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?= htmlspecialchars($title) ?></title>
+<title>Bantuan PKH dan BPNT CAIR</title>
 
-<meta name="description" content="<?= htmlspecialchars($desc) ?>">
+<meta name="description" content="Cek sekarang bantuan PKH dan BPNT">
 
 <!-- Open Graph -->
-<meta property="og:title" content="<?= htmlspecialchars($title) ?>">
-<meta property="og:description" content="<?= htmlspecialchars($desc) ?>">
-<meta property="og:image" content="<?= $image ?>">
+<meta property="og:title" content="PKH dan BPNT Tahap Baru Sudah Cair!">
+<meta property="og:description" content="Cek sekarang apakah nama kamu sudah masuk penerima bantuan terbaru. Klik untuk lihat informasi lengkapnya.">
+<meta property="og:image" content="https://kabarbaru.netlify.app/bantuan/bantuan.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:type" content="website">
-<meta property="og:url" content="<?= $domain ?>">
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?= htmlspecialchars($title) ?>">
-<meta name="twitter:description" content="<?= htmlspecialchars($desc) ?>">
-<meta name="twitter:image" content="<?= $image ?>">
+<meta name="twitter:title" content="PKH dan BPNT Tahap Baru Sudah Cair!">
+<meta name="twitter:description" content="Cek sekarang apakah nama kamu sudah masuk penerima bantuan terbaru. Klik untuk lihat informasi lengkapnya.">
+<meta name="twitter:image" content="https://kabarbaru.netlify.app/bantuan/bantuan.jpeg">
 
 <style>
 body{
@@ -110,15 +87,15 @@ p{
 
 <div class="box">
 
-    <img src="<?= $thumb ?>" alt="thumbnail">
+    <img src="bantuan.jpeg" alt="thumbnail">
 
     <div class="content">
 
-        <h1><?= htmlspecialchars($title) ?></h1>
+        <h1>PKH dan BPNT Tahap Baru Sudah Cair!</h1>
 
-        <p><?= htmlspecialchars($desc) ?></p>
+        <p>Cek sekarang apakah nama kamu sudah masuk penerima bantuan terbaru. Klik untuk lihat informasi lengkapnya.</p>
 
-        <a class="btn" href="<?= $redirect ?>">
+        <a class="btn" href="https://www.profitablecpmratenetwork.com/k44tx0pkr7?key=f4c5add68b1b014b0917c4f17169b7bc">
             Lihat Sekarang
         </a>
 
